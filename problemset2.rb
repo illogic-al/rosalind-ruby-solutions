@@ -1,4 +1,4 @@
-require_relative 'rna'
+require_relative 'lib/rna'
 
 my_sequence = RNA.new(ARGV.first)
 

@@ -1,5 +1,5 @@
 #!/c/Ruby193/bin/ruby 
-require_relative 'dna'
+require_relative 'lib/dna'
 
 my_sequence = DNA.new(ARGV.first)
 
