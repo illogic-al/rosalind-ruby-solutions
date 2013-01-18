@@ -18,20 +18,19 @@ class DNA
     print_sequence
   end
 
-  def print_base_count
-    @result.join(" ")
-  end
-
   def count_bases
     Gandalf.the_validator(@dna_bases)
 
     @nucleotides.each do |base|
       result.push( @dna_bases.count(base) )
     end
-    
+
     @result
   end
 
+  def pretty_base_count
+    @result.join(" ")
+  end
 end
 
 describe DNA do
@@ -58,7 +57,7 @@ describe DNA do
   end
 
   it "has a string with nucleotides counts" do
-    my_sequence.print_base_count.should == "20 12 17 21 0"
+    my_sequence.pretty_base_count.should == "20 12 17 21 0"
   end
 
   it "counts how many 'A' nucleotides are present" do

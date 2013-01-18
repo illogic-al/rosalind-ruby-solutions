@@ -19,19 +19,19 @@ class DNA
     print_sequence
   end
 
-  def print_base_count
-    count_bases
-    @result.join(" ")
-  end
-
   def count_bases
     @dna_bases = Gandalf.the_validator(@dna_bases)
 
     @nucleotides.each do |base|
       result.push( @dna_bases.count(base) )
     end
-    
+
     @result
+  end
+
+  def pretty_base_count
+    count_bases
+    @result.join(" ")
   end
 
 end
