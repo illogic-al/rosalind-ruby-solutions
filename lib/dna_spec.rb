@@ -5,7 +5,7 @@ class DNA
   attr_reader :nucleotides, :dna_bases, :result
 
   def initialize(sequence)
-    @nucleotides = %w( A C G T U )
+    @nucleotides = %w( A C G T )
     @dna_bases = sequence
     @result = []
   end
@@ -53,11 +53,11 @@ describe DNA do
   end
 
   it "returns an array of integers containing the number of 'A' 'C' 'G' 'T' & 'U' nucleotides, in that order" do
-    my_sequence.count_bases.should == [20, 12, 17, 21, 0]
+    my_sequence.count_bases.should == [20, 12, 17, 21]
   end
 
   it "has a string with nucleotides counts" do
-    my_sequence.pretty_base_count.should == "20 12 17 21 0"
+    my_sequence.pretty_base_count.should == "20 12 17 21"
   end
 
   it "counts how many 'A' nucleotides are present" do
@@ -74,10 +74,6 @@ describe DNA do
 
   it "counts how many 'T' nucleotides are present" do
     my_sequence.result[3].should == 21
-  end
-
-  it "counts how many 'U' nucleotides are present" do
-    my_sequence.result[4].should == 0
   end
 
 end
