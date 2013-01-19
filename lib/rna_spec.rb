@@ -27,7 +27,9 @@ class RNA
 end
 
 describe RNA do
-
+  before do
+    $stdout = StringIO.new
+  end
 
   it "takes a string of DNA nucleotides" do
     my_sequence = RNA.new("GATGGAACTTGACTACGTAAATT")

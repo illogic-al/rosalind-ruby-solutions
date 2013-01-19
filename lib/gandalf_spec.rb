@@ -2,6 +2,10 @@ require 'rspec'
 require_relative 'gandalf'
 
 describe Gandalf do
+  before do
+    $stdout = StringIO.new
+  end
+
   it "takes a string parameter and checks if it is a file"
 
   it "takes our input and checks if it is a string"

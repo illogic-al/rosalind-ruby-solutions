@@ -34,6 +34,10 @@ class DNA
 end
 
 describe DNA do
+  before do
+    $stdout = StringIO.new
+  end
+
   my_sequence = DNA.new("AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC")
 
   it "is a String" do
