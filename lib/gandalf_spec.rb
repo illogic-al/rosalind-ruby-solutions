@@ -4,11 +4,23 @@ require_relative 'gandalf'
 describe Gandalf do
   before do
     $stdout = StringIO.new
+    $stderr = StringIO.new
   end
 
-  it "takes a string parameter and checks if it is a file"
+  it "tests if a parameter is a file and if true, returns stripped file contents" do
+    Gandalf::the_validator("test_file.txt").should == "AAAACCCGGTuxn-"
+  end
 
-  it "takes our input and checks if it is a string"
+  context "on valid string characters" do
+    it "strips String and gives it back to us" do
+      Gandalf::the_validator("AAAACCCGGT\n").should == "AAAACCCGGT"
+    end
+  end
 
-  it "dies if we have neither File nor String as input"
+  context "on invalid string characters" do
+    it "dies and prints out message" do
+      # lambda catches kernel errors and passes them to RSPEC apparently
+      lambda {Gandalf::the_validator( "AAAACCCGGTXi-UN" )}.should raise_error SystemExit
+    end
+  end
 end
