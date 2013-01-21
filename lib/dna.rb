@@ -5,9 +5,7 @@ class DNA
 
   def initialize(sequence)
     @nucleotides = %w( A C G T )
-    # chomp it to remove newlines and such,
-    # so we can have files as input too
-    @dna_bases = sequence.chomp
+    @dna_bases = sequence
     @result = []
   end
 

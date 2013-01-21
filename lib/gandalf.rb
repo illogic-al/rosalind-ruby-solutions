@@ -2,7 +2,7 @@ module Gandalf
   def self.the_validator(input)
     if File.file?(input)
       puts "Gandalf says:\n\t\"I've been sent back until my task is done.\""
-      input = File.read(input)
+      input = File.read(input).chomp
     elsif input.is_a?(String)
       puts "Gandalf says:\n\t\"The board is set... the pieces are moving.\""
       input
