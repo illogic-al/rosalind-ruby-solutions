@@ -32,4 +32,23 @@ class DNA
     @result.join(" ")
   end
 
+  def reverse_complement
+    @dna_bases = Gandalf.the_validator(@dna_bases)
+
+    temp = @dna_bases.reverse.split(//)
+    temp.each do |base|
+      case base
+      when 'A'
+        base.gsub!('A', 'T')
+      when 'C'
+        base.gsub!('C', 'G')
+      when 'G'
+        base.gsub!('G', 'C')
+      when 'T'
+        base.gsub!('T', 'A')
+      end
+    end
+
+    temp.join
+  end
 end

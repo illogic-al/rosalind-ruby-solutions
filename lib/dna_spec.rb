@@ -31,6 +31,26 @@ class DNA
   def pretty_base_count
     @result.join(" ")
   end
+
+  def reverse_complement
+    Gandalf.the_validator(@dna_bases)
+
+    temp = @dna_bases.reverse.split(//)
+    temp.each do |base|
+      case base
+      when 'A'
+        base.gsub!('A', 'T')
+      when 'C'
+        base.gsub!('C', 'G')
+      when 'G'
+        base.gsub!('G', 'C')
+      when 'T'
+        base.gsub!('T', 'A')
+      end
+    end
+
+    temp.join
+  end
 end
 
 describe DNA do
@@ -78,6 +98,11 @@ describe DNA do
 
   it "counts how many 'T' nucleotides are present" do
     my_sequence.result[3].should == 21
+  end
+
+  it "gives us the reverse complement of the input sequence" do
+    my_sequence = DNA.new("AAAACCCGGT")
+    my_sequence.reverse_complement.should == "ACCGGGTTTT"
   end
 
 end
